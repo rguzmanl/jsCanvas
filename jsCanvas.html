@@ -6,19 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>jsCanvas</title>
 
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
     <style type="text/css">
         canvas{
             border: 1px solid black;
             /* width: 80%;
             height: 80%; */
         }
+
+    /* html, body
+     overflow-x
+     overflow-y  
+
+     body{
+         position: relative */
+
+    /* Try rotation and "reset" to clean mobile */
+
+     }
+
     </style>
 
 </head>
 
 
 <body>
-    <!-- <h1>My Canvas</h1> -->
+   
 
     <!--This info is now managed in <style> css, width="500" height="500" -->
     <canvas id="myCanvas" width="681" height="1017"></canvas>
@@ -97,6 +111,11 @@
             // console.log(e.clientX)
             y = touch.clientY;
             // console.log(e.clientY)
+
+            // if(e.target == c){
+            //     e.preventDefault();
+            // }
+
             draw()
         })
 
