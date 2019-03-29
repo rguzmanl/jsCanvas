@@ -35,6 +35,7 @@
         var wHeight = window.innerHeight;
 
         c.width = wWidth*.8;
+        console.log(c.width)
         c.height = wHeight*.8;
 
         function draw(){
@@ -91,7 +92,7 @@
 
         window.addEventListener('touchmove', function(e){
             var touch = e.touches[0];
-            console.log(touch)
+            // console.log(touch)
             x = touch.clientX;
             // console.log(e.clientX)
             y = touch.clientY;
