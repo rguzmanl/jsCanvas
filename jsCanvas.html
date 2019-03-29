@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>jsCanvas</title>
 
-    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <!-- <meta name="viewport" content="width=device-width, user-scalable=no"> -->
 
     <style type="text/css">
         canvas{
@@ -112,15 +112,16 @@
             y = touch.clientY;
             // console.log(e.clientY)
 
-            // if(e.target == c){
-            //     e.preventDefault();
-            // }
-
             draw()
         })
 
 
-             
+        document.body.addEventListener("touchmove", function (e) {
+            if (e.target == c) {
+                e.preventDefault();
+            }
+        }, false);
+                    
             
 
 
