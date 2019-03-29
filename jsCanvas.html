@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jsCanvas</title>
+
+    <style type="text/css">
+        canvas{
+            border: 1px solid black;
+            /* width: 80%;
+            height: 80%; */
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <!--This info is now managed in <style> css, width="500" height="500" -->
+    <canvas id="myCanvas" width="681" height="1017"></canvas>
+
+    <script>
+
+        var y = 0;
+        var x = 0;
+        var radius = 10;
+        var color = "red";
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var wWidth = window.innerWidth;
+        var wHeight = window.innerHeight;
+
+        c.width = wWidth*.8;
+        c.height = wHeight*.8;
+
+        function draw(){
+            ctx.beginPath();
+            ctx.fillStyle = color;
+            ctx.arc(x,y,radius,0,2*Math.PI);
+            ctx.fill();
+        }
+
+        window.addEventListener('mousemove', function (e) {
+            // console.log(e.pageX);
+            // console.log(e.pageY);
+            x = e.pageX;
+            y = e.pageY;
+            draw()
+        })
+
+
+        window.addEventListener('keyup', function (e) {
+            // console.log(e.keyCode)
+            // b=66, g=71, r=82, y=89
+            if (e.keyCode == '66'){
+                color = "blue";
+            }
+            if (e.keyCode == '71'){
+                color = "green";
+            }
+            if (e.keyCode == '82'){
+                color = "red";
+            }
+            if (e.keyCode == '89'){
+                color = "yellow";
+            }
+
+            // up-arrow=38, down-arrow=40
+            if (e.keyCode == '38'){
+                radius = radius + 1;
+            }
+            if (e.keyCode == '40'){
+                if (radius > 0){
+                    radius = radius - 1;
+                } 
+                                    
+            }
+            // space bar=32
+            if (e.keyCode == '32'){
+                ctx.clearRect(0, 0, c.width, c.height);
+            }
+            
+
+            draw()
+        })
+
+        
+            
+
+
+
+
+    </script>
+    
+
+    
+</body>
+
+
+</html>
