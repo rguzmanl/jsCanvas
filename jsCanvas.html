@@ -18,6 +18,8 @@
 
 
 <body>
+    <!-- <h1>My Canvas</h1> -->
+
     <!--This info is now managed in <style> css, width="500" height="500" -->
     <canvas id="myCanvas" width="681" height="1017"></canvas>
 
@@ -86,7 +88,19 @@
             draw()
         })
 
-        
+
+        window.addEventListener('touchmove', function(e){
+            var touch = e.touches[0];
+            console.log(touch)
+            x = touch.clientX;
+            // console.log(e.clientX)
+            y = touch.clientY;
+            // console.log(e.clientY)
+            draw()
+        })
+
+
+             
             
 
 
