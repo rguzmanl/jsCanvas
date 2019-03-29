@@ -116,11 +116,12 @@
         })
 
 
-        document.body.addEventListener("touchmove", function (e) {
-            if (e.target == c) {
-                e.preventDefault();
-            }
-        }, false);
+        window.addEventListener('orientationchange', function(e){
+            alert('orientation changed')
+            ctx.clearRect(0, 0, c.width, c.height);
+
+           
+        })
                     
             
 
