@@ -36,20 +36,27 @@
 
     <!--This info is now managed in <style> css, width="500" height="500" -->
     <canvas id="myCanvas" width="681" height="1017"></canvas>
+    <br>
+    <label for="pickColor">Color:</label>
+    <input type="color" id="pickColor" value="#ff0000">
+
+    <!-- <input type="submit"> -->
 
     <script>
 
         var y = 0;
         var x = 0;
         var radius = 10;
-        var color = "red";
+        var color = "#ff0000";
+        console.log(color);
         var c = document.getElementById("myCanvas");
+        // console.log(c);
         var ctx = c.getContext("2d");
         var wWidth = window.innerWidth;
         var wHeight = window.innerHeight;
 
         c.width = wWidth*.8;
-        console.log(c.width)
+        console.log(c.width);
         c.height = wHeight*.8;
 
         function draw(){
@@ -58,6 +65,7 @@
             ctx.arc(x,y,radius,0,2*Math.PI);
             ctx.fill();
         }
+
 
         window.addEventListener('mousemove', function (e) {
             // console.log(e.pageX);
@@ -103,6 +111,7 @@
             draw()
         })
 
+        
 
         window.addEventListener('touchmove', function(e){
             var touch = e.touches[0];
@@ -117,14 +126,17 @@
 
 
         window.addEventListener('orientationchange', function(e){
-            alert('orientation changed')
+            // alert('orientation changed')
             ctx.clearRect(0, 0, c.width, c.height);
 
            
         })
                     
             
-
+        window.addEventListener("change", function(e){
+            // alert("hello");
+            color = document.getElementById("pickColor").value;
+        })
 
 
 
